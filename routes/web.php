@@ -1,6 +1,8 @@
 <?php
 
-Route::view('/', 'welcome');
+//Route::view('/', 'welcome');
+use Illuminate\Support\Facades\Route;
+
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
@@ -50,47 +52,37 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
     }
 });
-Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['auth']], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
 
-    // Permissions
-    Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
-    Route::resource('permissions', 'PermissionsController');
-
-    // Roles
-    Route::delete('roles/destroy', 'RolesController@massDestroy')->name('roles.massDestroy');
-    Route::resource('roles', 'RolesController');
-
-    // Users
-    Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
-    Route::resource('users', 'UsersController');
-
-    // Marketing Testimonial
-    Route::delete('marketing-testimonials/destroy', 'MarketingTestimonialController@massDestroy')->name('marketing-testimonials.massDestroy');
-    Route::post('marketing-testimonials/media', 'MarketingTestimonialController@storeMedia')->name('marketing-testimonials.storeMedia');
-    Route::post('marketing-testimonials/ckmedia', 'MarketingTestimonialController@storeCKEditorImages')->name('marketing-testimonials.storeCKEditorImages');
-    Route::resource('marketing-testimonials', 'MarketingTestimonialController');
-
-    // Faq Category
-    Route::delete('faq-categories/destroy', 'FaqCategoryController@massDestroy')->name('faq-categories.massDestroy');
-    Route::resource('faq-categories', 'FaqCategoryController');
-
-    // Faq Question
-    Route::delete('faq-questions/destroy', 'FaqQuestionController@massDestroy')->name('faq-questions.massDestroy');
-    Route::resource('faq-questions', 'FaqQuestionController');
-
-    // Marketing Blog Category
-    Route::delete('marketing-blog-categories/destroy', 'MarketingBlogCategoryController@massDestroy')->name('marketing-blog-categories.massDestroy');
-    Route::resource('marketing-blog-categories', 'MarketingBlogCategoryController');
-
-    // Marketing Blog Article
-    Route::delete('marketing-blog-articles/destroy', 'MarketingBlogArticleController@massDestroy')->name('marketing-blog-articles.massDestroy');
-    Route::post('marketing-blog-articles/media', 'MarketingBlogArticleController@storeMedia')->name('marketing-blog-articles.storeMedia');
-    Route::post('marketing-blog-articles/ckmedia', 'MarketingBlogArticleController@storeCKEditorImages')->name('marketing-blog-articles.storeCKEditorImages');
-    Route::resource('marketing-blog-articles', 'MarketingBlogArticleController');
-
-    Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
-    Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');
-    Route::post('frontend/profile/destroy', 'ProfileController@destroy')->name('profile.destroy');
-    Route::post('frontend/profile/password', 'ProfileController@password')->name('profile.password');
+    Route::get('/faq', function () {
+        return view('frontend.pages.faq');
+    })->name('faq');
+    Route::get('/about', function () {
+        return view('frontend.pages.about');
+    })->name('about');
+    Route::get('/blog', function () {
+        return view('frontend.pages.blog');
+    })->name('blog');
+    Route::get('/blog_inner', function () {
+        return view('frontend.pages.blog_inner');
+    })->name('blog_inner');
+    Route::get('/catalog', function () {
+        return view('frontend.pages.catalog');
+    })->name('catalog');
+    Route::get('/contact', function () {
+        return view('frontend.pages.contact');
+    })->name('contact');
+    Route::get('/how_it_works', function () {
+        return view('frontend.pages.how_it_works');
+    })->name('how_it_works');
+    Route::get('/product_page', function () {
+        return view('frontend.pages.product_page');
+    })->name('products');
+    Route::get('/single_product', function () {
+        return view('frontend.pages.single_product');
+    })->name('single_product');
+    Route::get('/sub_category', function () {
+        return view('frontend.pages.sub_category');
+    })->name('sub_category');
 });
