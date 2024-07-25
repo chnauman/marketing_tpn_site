@@ -1,4 +1,4 @@
-@extends('layouts.main_layout')
+@extends('frontend.layouts.main_layout')
 @section('content')
     <!-- Small Banner -->
     <section class="small-banner">
@@ -234,10 +234,10 @@
             <h4>Marketing Tricks</h4>
             <div class="row">
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img1.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -255,10 +255,10 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img2.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -276,10 +276,10 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img3.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -306,10 +306,10 @@
             <h4>Trending Designs</h4>
             <div class="row">
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img1.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -327,10 +327,10 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img2.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -348,10 +348,10 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img3.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -378,10 +378,10 @@
             <h4>TPN News</h4>
             <div class="row">
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img1.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -399,10 +399,10 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img2.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -420,10 +420,10 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img3.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -450,10 +450,10 @@
             <h4>Success Stories</h4>
             <div class="row">
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img1.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -471,10 +471,10 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img2.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>
@@ -492,10 +492,10 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{route('blog_inner')}}" class="blog-image-small">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-image-small">
                         <img src="{{ asset('images/blog-category-img3.png') }}" alt="Blog Image" class="img-fluid">
                     </a>
-                    <a href="{{route('blog_inner')}}" class="blog-category-details">
+                    <a href="{{route('frontend.blog_inner')}}" class="blog-category-details">
                         <div class="tag-time">
                             <p>Marketing Tricks</p>
                             <small>10 min read</small>

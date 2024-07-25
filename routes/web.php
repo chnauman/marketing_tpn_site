@@ -53,23 +53,19 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
     }
 });
 Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('/faq', function () {
-        return view('frontend.pages.faq');
-    })->name('faq');
-    Route::get('/about', function () {
-        return view('frontend.pages.about');
-    })->name('about');
-    Route::get('/blog', function () {
-        return view('frontend.pages.blog');
-    })->name('blog');
+    Route::get('/faq', 'FaqQuestionController@index')->name('faq');
+
+    Route::get('/blog', 'MarketingBlogArticleController@index')->name('blog');
+
     Route::get('/blog_inner', function () {
         return view('frontend.pages.blog_inner');
     })->name('blog_inner');
     Route::get('/catalog', function () {
         return view('frontend.pages.catalog');
     })->name('catalog');
+
     Route::get('/contact', function () {
         return view('frontend.pages.contact');
     })->name('contact');
@@ -85,4 +81,8 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
     Route::get('/sub_category', function () {
         return view('frontend.pages.sub_category');
     })->name('sub_category');
+    Route::get('/about', function () {
+        return view('frontend.pages.about');
+    })->name('about');
+
 });

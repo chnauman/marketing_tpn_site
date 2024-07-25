@@ -1,4 +1,4 @@
-@extends('layouts.main_layout')
+@extends('frontend.layouts.main_layout')
 @section('content')
     <!-- How it works -->
     <section class="how-it-works">

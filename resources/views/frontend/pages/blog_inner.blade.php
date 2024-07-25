@@ -1,4 +1,4 @@
-@extends('layouts.main_layout')
+@extends('frontend.layouts.main_layout')
 @section('content')
     <!-- Blog Details -->
     <section class="blog-details-wrapper">

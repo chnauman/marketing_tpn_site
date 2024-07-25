@@ -8,10 +8,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" aria-current="page" href="{{route('catalog')}}">Catalog</a>
-                    <a class="nav-link" href="{{route('how_it_works')}}">How it Works</a>
-                    <a class="nav-link" href="{{route('faq')}}">FAQs</a>
-                    <a class="nav-link" href="{{route('blog')}}">Blog</a>
+                    <a class="nav-link" aria-current="page" href="{{route('frontend.catalog')}}">Catalog</a>
+                    <a class="nav-link" href="{{route('frontend.how_it_works')}}">How it Works</a>
+                    <a class="nav-link" href="{{route('frontend.faq')}}">FAQs</a>
+                    <a class="nav-link" href="{{route('frontend.blog')}}">Blog</a>
                     <a class="nav-link" href="#">Help</a>
                 </div>
                 <div class="login-btn">

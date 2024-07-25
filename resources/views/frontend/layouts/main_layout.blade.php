@@ -20,8 +20,8 @@
         <title>The Print Nation</title>
     </head>
     <body>
-        @include('components.header')
+        @include('frontend.components.header')
         @yield('content')
-        @include('components.footer')
+        @include('frontend.components.footer')
     </body>
 </html>
