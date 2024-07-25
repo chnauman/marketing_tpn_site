@@ -67,6 +67,14 @@
                             {!! $marketingBlogArticle->article_text !!}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.marketingBlogArticle.fields.marketing_blog_category') }}
+                        </th>
+                        <td>
+                            {{ $marketingBlogArticle->marketing_blog_category->title ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

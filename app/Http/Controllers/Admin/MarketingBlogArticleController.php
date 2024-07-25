@@ -8,6 +8,7 @@ use App\Http\Requests\MassDestroyMarketingBlogArticleRequest;
 use App\Http\Requests\StoreMarketingBlogArticleRequest;
 use App\Http\Requests\UpdateMarketingBlogArticleRequest;
 use App\Models\MarketingBlogArticle;
+use App\Models\MarketingBlogCategory;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -21,7 +22,7 @@ class MarketingBlogArticleController extends Controller
     {
         abort_if(Gate::denies('marketing_blog_article_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $marketingBlogArticles = MarketingBlogArticle::with(['media'])->get();
+        $marketingBlogArticles = MarketingBlogArticle::with(['marketing_blog_category', 'media'])->get();
 
         return view('admin.marketingBlogArticles.index', compact('marketingBlogArticles'));
     }
@@ -30,7 +31,9 @@ class MarketingBlogArticleController extends Controller
     {
         abort_if(Gate::denies('marketing_blog_article_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.marketingBlogArticles.create');
+        $marketing_blog_categories = MarketingBlogCategory::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.marketingBlogArticles.create', compact('marketing_blog_categories'));
     }
 
     public function store(StoreMarketingBlogArticleRequest $request)
@@ -52,7 +55,11 @@ class MarketingBlogArticleController extends Controller
     {
         abort_if(Gate::denies('marketing_blog_article_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.marketingBlogArticles.edit', compact('marketingBlogArticle'));
+        $marketing_blog_categories = MarketingBlogCategory::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $marketingBlogArticle->load('marketing_blog_category');
+
+        return view('admin.marketingBlogArticles.edit', compact('marketingBlogArticle', 'marketing_blog_categories'));
     }
 
     public function update(UpdateMarketingBlogArticleRequest $request, MarketingBlogArticle $marketingBlogArticle)
@@ -79,6 +86,8 @@ class MarketingBlogArticleController extends Controller
     public function show(MarketingBlogArticle $marketingBlogArticle)
     {
         abort_if(Gate::denies('marketing_blog_article_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $marketingBlogArticle->load('marketing_blog_category');
 
         return view('admin.marketingBlogArticles.show', compact('marketingBlogArticle'));
     }

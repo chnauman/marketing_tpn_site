@@ -31,6 +31,7 @@ class MarketingBlogArticle extends Model implements HasMedia
         'author',
         'duration',
         'article_text',
+        'marketing_blog_category_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -57,5 +58,10 @@ class MarketingBlogArticle extends Model implements HasMedia
         });
 
         return $files;
+    }
+
+    public function marketing_blog_category()
+    {
+        return $this->belongsTo(MarketingBlogCategory::class, 'marketing_blog_category_id');
     }
 }

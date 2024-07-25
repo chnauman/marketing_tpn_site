@@ -54,6 +54,8 @@ class MarketingBlogCategoryController extends Controller
     {
         abort_if(Gate::denies('marketing_blog_category_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $marketingBlogCategory->load('marketingBlogCategoryMarketingBlogArticles');
+
         return view('admin.marketingBlogCategories.show', compact('marketingBlogCategory'));
     }
 
