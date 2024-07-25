@@ -37,6 +37,10 @@ class UpdateMarketingBlogArticleRequest extends FormRequest
             'article_text' => [
                 'required',
             ],
+            'marketing_blog_category_id' => [
+                'required',
+                'integer',
+            ],
         ];
     }
 }

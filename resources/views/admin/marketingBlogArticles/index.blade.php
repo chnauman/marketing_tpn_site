@@ -38,6 +38,9 @@
                             {{ trans('cruds.marketingBlogArticle.fields.image') }}
                         </th>
                         <th>
+                            {{ trans('cruds.marketingBlogArticle.fields.marketing_blog_category') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -66,6 +69,9 @@
                                         <img src="{{ $media->getUrl('thumb') }}">
                                     </a>
                                 @endforeach
+                            </td>
+                            <td>
+                                {{ $marketingBlogArticle->marketing_blog_category->title ?? '' }}
                             </td>
                             <td>
                                 @can('marketing_blog_article_show')

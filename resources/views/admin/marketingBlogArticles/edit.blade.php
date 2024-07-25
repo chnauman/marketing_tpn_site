@@ -52,6 +52,18 @@
                 <span class="help-block">{{ trans('cruds.marketingBlogArticle.fields.article_text_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="marketing_blog_category_id">{{ trans('cruds.marketingBlogArticle.fields.marketing_blog_category') }}</label>
+                <select class="form-control select2 {{ $errors->has('marketing_blog_category') ? 'is-invalid' : '' }}" name="marketing_blog_category_id" id="marketing_blog_category_id" required>
+                    @foreach($marketing_blog_categories as $id => $entry)
+                        <option value="{{ $id }}" {{ (old('marketing_blog_category_id') ? old('marketing_blog_category_id') : $marketingBlogArticle->marketing_blog_category->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('marketing_blog_category'))
+                    <span class="text-danger">{{ $errors->first('marketing_blog_category') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.marketingBlogArticle.fields.marketing_blog_category_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>
