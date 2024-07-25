@@ -30,4 +30,9 @@ class MarketingBlogCategory extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+    public function marketingBlogCategoryMarketingBlogArticles()
+    {
+        return $this->hasMany(MarketingBlogArticle::class, 'marketing_blog_category_id', 'id');
+    }
 }
