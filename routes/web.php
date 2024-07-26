@@ -59,9 +59,10 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
 
     Route::get('/blog', 'MarketingBlogArticleController@index')->name('blog');
 
-    Route::get('/blog_inner', function () {
-        return view('frontend.pages.blog_inner');
-    })->name('blog_inner');
+    Route::get('/blog/{id}', 'MarketingBlogArticleController@specificArticle');
+
+    Route::get('/products', 'HomeController@products');
+
     Route::get('/catalog', function () {
         return view('frontend.pages.catalog');
     })->name('catalog');

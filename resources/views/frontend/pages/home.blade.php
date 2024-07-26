@@ -129,187 +129,44 @@
 
 
 
-                <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1286px, 0px, 0px); transition: all 0s ease 0s; width: 3861px;"><div class="owl-item cloned" style="width: 311.714px; margin-right: 10px;"><div class="item">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(-1286px, 0px, 0px); transition: all 0s ease 0s; width: 3861px;">
+                        @foreach($testimonials as $testimonial)
+                        <div class="owl-item cloned" style="width: 311.714px; margin-right: 10px;">
+                            <div class="item">
                                 <div class="feedback-card">
                                     <div class="reviewer-info">
                                         <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr1.png') }}" alt="Reviewer Image" class="img-fluid">
+                                            @if($testimonial->photo)
+                                                <a href="{{ $testimonial->photo->getUrl() }}" target="_blank" style="display: inline-block">
+                                                    <img src="{{ $testimonial->photo->getUrl() }}">
+                                                </a>
+                                            @endif
                                         </div>
                                         <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
+                                            <h3>{{$testimonial->title}}</h3>
+                                            <p>{{$testimonial->designation}}</p>
                                         </div>
                                     </div>
                                     <p class="review-text">
-                                        ”The Print Nation has made it possible for me to run my business from anywhere in the world without worrying about handling, order fulfillment, and inventory.  They’re easy to work with, very understanding and provide so many services.”
+                                        {!! $testimonial->review_text !!}
                                     </p>
                                 </div>
-                            </div></div><div class="owl-item cloned" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr2.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        ”TPN helped me kickstart my website and brand and gave me all the tools and comfort in order to succeed.  They are really friendly and REALLY helpful.  The great part is that I don’t have to worry about delivery or having to look for materials.  It’s all under one roof!  They’re really flexible to work with and I’m really thankful.”
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item cloned" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr3.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        ”As a business owner who sells different products!  TPN saves my time and money for printing my designs on Mugs &amp; Tote bags FAST!  And send them to my customer ASAP! Thank you, TPN you are a lifesaver😍”
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item cloned" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr4.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        "This product is amazing! It has significantly improved my productivity and the quality of my work. Highly recommend to anyone looking for a reliable solution."
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item active" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr1.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        ”The Print Nation has made it possible for me to run my business from anywhere in the world without worrying about handling, order fulfillment, and inventory.  They’re easy to work with, very understanding and provide so many services.”
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item active" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr2.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        ”TPN helped me kickstart my website and brand and gave me all the tools and comfort in order to succeed.  They are really friendly and REALLY helpful.  The great part is that I don’t have to worry about delivery or having to look for materials.  It’s all under one roof!  They’re really flexible to work with and I’m really thankful.”
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item active" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr3.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        ”As a business owner who sells different products!  TPN saves my time and money for printing my designs on Mugs &amp; Tote bags FAST!  And send them to my customer ASAP! Thank you, TPN you are a lifesaver😍”
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item active" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr4.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        "This product is amazing! It has significantly improved my productivity and the quality of my work. Highly recommend to anyone looking for a reliable solution."
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item cloned" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr1.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        ”The Print Nation has made it possible for me to run my business from anywhere in the world without worrying about handling, order fulfillment, and inventory.  They’re easy to work with, very understanding and provide so many services.”
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item cloned" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr2.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        ”TPN helped me kickstart my website and brand and gave me all the tools and comfort in order to succeed.  They are really friendly and REALLY helpful.  The great part is that I don’t have to worry about delivery or having to look for materials.  It’s all under one roof!  They’re really flexible to work with and I’m really thankful.”
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item cloned" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr3.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        ”As a business owner who sells different products!  TPN saves my time and money for printing my designs on Mugs &amp; Tote bags FAST!  And send them to my customer ASAP! Thank you, TPN you are a lifesaver😍”
-                                    </p>
-                                </div>
-                            </div></div><div class="owl-item cloned" style="width: 311.714px; margin-right: 10px;"><div class="item">
-                                <div class="feedback-card">
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-image">
-                                            <img src="{{ asset('images/reviewr4.png') }}" alt="Reviewer Image" class="img-fluid">
-                                        </div>
-                                        <div class="reviewer-details">
-                                            <h3>John Doe</h3>
-                                            <p>Software Engineer</p>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">
-                                        "This product is amazing! It has significantly improved my productivity and the quality of my work. Highly recommend to anyone looking for a reliable solution."
-                                    </p>
-                                </div>
-                            </div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><img src="{{ asset('images/carousel-arrow-left.svg') }}" alt="Arrow Left"></button><button type="button" role="presentation" class="owl-next"><img src="{{ asset('images/carousel-arrow-right.svg') }}" alt="Arrow Right"></button></div><div class="owl-dots disabled"></div></div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="owl-nav">
+                    <button type="button" role="presentation" class="owl-prev">
+                        <img src="{{ asset('images/carousel-arrow-left.svg') }}" alt="Arrow Left">
+                    </button>
+                    <button type="button" role="presentation" class="owl-next">
+                        <img src="{{ asset('images/carousel-arrow-right.svg') }}" alt="Arrow Right">
+                    </button>
+                </div>
+                <div class="owl-dots disabled"></div>
+            </div>
         </div>
     </section>
 

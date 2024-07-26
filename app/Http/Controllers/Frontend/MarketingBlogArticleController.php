@@ -21,11 +21,20 @@ class MarketingBlogArticleController extends Controller
     public function index()
     {
         $marketingBlogCategories = MarketingBlogCategory::with(['articles.media'])->get();
-        //$marketingBlogArticles = MarketingBlogArticle::with(['media'])->get();
-        dd($marketingBlogCategories);
+        $marketingBlogArticles = MarketingBlogArticle::with(['media'])->latest()->take(4)->get();
+        //dd($marketingBlogArticles);
 
-        return view('frontend.marketingBlogArticles.index', compact('marketingBlogArticles'));
+        //dd($marketingBlogCategories);
+
+        return view('frontend.pages.blog', compact(['marketingBlogCategories', 'marketingBlogArticles']));
     }
 
-
+    public function specificArticle(Request $request){
+        $blogArticle = MarketingBlogArticle::find($request->id);
+        if($blogArticle){
+            return view('frontend.pages.blog_inner', compact('blogArticle'));
+        } else {
+            $this->index();
+        }
+    }
 }

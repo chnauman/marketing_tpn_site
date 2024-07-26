@@ -26,6 +26,11 @@ class MarketingBlogCategory extends Model
         'deleted_at',
     ];
 
+    public function articles()
+    {
+        return $this->hasMany(MarketingBlogArticle::class);
+    }
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
