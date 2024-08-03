@@ -53,7 +53,8 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
     }
 });
 Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index');
+    //Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/faq', 'FaqQuestionController@index')->name('faq');
 
