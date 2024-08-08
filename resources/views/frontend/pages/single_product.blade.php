@@ -7,34 +7,24 @@
                 <div class="col-md-6">
                     <div class="carousel-container">
                         <div class="carousel-thumbnails">
-                            <div class="thumnail-image" data-bs-target="#carouselExample" data-bs-slide-to="0">
-                                <img src="{{ asset('images/coat.png') }}" class="active">
-                            </div>
-                            <div class="thumnail-image" data-bs-target="#carouselExample" data-bs-slide-to="1">
-                                <img src="{{ asset('images/coat-2.png') }}" class="active">
-                            </div>
-                            <div class="thumnail-image" data-bs-target="#carouselExample" data-bs-slide-to="2">
-                                <img src="{{ asset('images/coat3.png') }}" class="active">
-                            </div>
-                            <div class="thumnail-image" data-bs-target="#carouselExample" data-bs-slide-to="3">
-                                <img src="{{ asset('images/coat-4.png') }}" class="active">
-                            </div>
+                            @foreach ($images as $index => $image)
+                                @if ($image)
+                                    <div class="thumnail-image" data-bs-target="#carouselExample" data-bs-slide-to="{{ $index }}">
+                                        <img src="{{ $image }}" class="active">
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/coat.png') }}" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/coat-2.png') }}" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('images/coat3.png') }}" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item active">
-                                    <img src="{{ asset('images/coat-4.png') }}" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
+                        <div class="carousel-inner">
+                            @foreach ($images as $index => $image)
+                                @if ($image)
+                                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                        <img src="{{ $image }}" class="d-block w-100">
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
@@ -48,8 +38,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="product-slider-details">
-                        <h1>Men’s Heavy Weight Tee</h1>
-                        <p>Gildan 5000</p>
+                        <h1>{{ $product->title }}</h1>
+                        <p>{{ $product->sku_prefix }}</p>
                         <div class="review">
                             <ul>
                                 <li><img src="{{ asset('images/star.svg') }}" alt="Star" class="img-fluid"></li>
@@ -62,26 +52,26 @@
                         </div>
                         <hr>
                         <div class="choose-color">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                            @if($product->color_values)
+                                @foreach(explode(',', $product->color_values) as $color)
+                                    <span style="background-color: {{ $color }}; border: 1px solid"></span>
+                                @endforeach
+                            @else
+                                <p>No colors available</p>
+                            @endif
                         </div>
                         <div class="choose-size">
                             <span><p class="text-dark"><b>Choose Size</b></p></span>
                             <p>Size Guide</p>
                         </div>
                         <div class="available-sizes">
-                            <span>S</span>
-                            <span>M</span>
-                            <span>L</span>
-                            <span>XL</span>
-                            <span>2XL</span>
-                            <span>3XL</span>
+                            @if($product->size_values)
+                            @foreach(explode(',', $product->size_values) as $size)
+                                <span>{{ $size }}</span>
+                            @endforeach
+                            @else
+                                <p>No size available</p>
+                            @endif
                         </div>
                         <div class="common-btns">
                             <a href="javascript:void(0)" class="w-100" data-bs-toggle="modal" data-bs-target="#designing-modal"><p>Start Designing</p></a>
@@ -249,7 +239,7 @@
                             <h5>Print Care Instructions</h5>
                             <p>Follow our <a href="javascript:void(0)">care instructions</a> to look after your custom printed products.</p>
                             <hr>
-                            <div class="tab-pane-reviews">
+                            <!-- <div class="tab-pane-reviews">
                                 <div class="row">
                                     <div class="col-md-5 col-lg-4 reviews-container">
                                         <div class="total-tab-reviews">
@@ -462,7 +452,7 @@
                                 <div class="common-btns d-flex justify-content-center">
                                     <a href="javascript:void(0)"><p>Add a Review</p></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1262,7 +1252,7 @@
         </div>
     </section>
     <!-- Modal -->
-    <div class="modal fade " id="designing-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade " id="designing-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1528,6 +1518,6 @@
             });
         });
 
-    </script>
+    </script> -->
 
 @endsection

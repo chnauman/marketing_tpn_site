@@ -31,75 +31,29 @@
                 <h4>Best Seller</h4>
                 <a href="javascript:void(0)">See All</a>
             </div>
+            
             <div class="row">
+            @foreach ($products as $product)
                 <div class="col-lg-6 col-xl-3 col-md-6">
                     <div class="single-shirt">
+                    <a href="{{ url('/product/' . $product->id) }}">
                         <div class="shirt-image">
-                            <img src="{{ asset('images/shirt1.png') }}" alt="Shirt Image" class="img-fluid">
+                            <img src="{{ $product->image_url }}" alt="{{ $product->title }}" class="img-fluid">
                         </div>
+                        </a>
                         <div class="shirt-details">
-                            <h4>Unisex Ultra Cotton Tee</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
+                            <h4>{{ $product->title }}</h4>
+                            <small>{{ $product->sku_prefix }}</small>
+                            <h6>USD {{ $product->base_price }}</h6>
                             <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
+                                <li>{{ $product->size_count }} sizes</li>
+                                <li>{{ $product->color_count }} colors</li>
+                                <!-- <li>11 print providers</li> -->
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt2.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Heavy Cotton Tee</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt3.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Heavy Blend Crewneck Sweatshirt</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt4.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Ultra Cotton Tee</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -162,155 +116,29 @@
                 <a href="javascript:void(0)">See All</a>
             </div>
             <div class="row">
+            @foreach ($products as $product)
                 <div class="col-lg-6 col-xl-3 col-md-6">
                     <div class="single-shirt">
                         <div class="shirt-image">
-                            <img src="{{ asset('images/shirt1.png') }}" alt="Shirt Image" class="img-fluid">
+                            <a href="{{ url('/product/' . $product->id) }}">
+                                <img src="{{ $product->image_url }}" alt="{{ $product->title }}" class="img-fluid">
+                            </a>
                         </div>
                         <div class="shirt-details">
-                            <h4>Unisex Ultra Cotton Tee</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
+                            <h4>{{ $product->title }}</h4>
+                            <small>{{ $product->sku_prefix }}</small>
+                            <h6>USD {{ $product->base_price }}</h6>
                             <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
+                                <li>{{ $product->size_count }} sizes</li>
+                                <li>{{ $product->color_count }} colors</li>
+                                <!-- <li>11 print providers</li> -->
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt2.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Heavy Cotton Tee</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt3.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Heavy Blend Crewneck Sweatshirt</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt4.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Ultra Cotton Tee</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
 
-    <!-- Selling types -->
-    <section class="seller-type">
-        <div class="container">
-            <div class="seller-header">
-                <h4>AOP Clothing</h4>
-                <a href="javascript:void(0)">See All</a>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt1.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Ultra Cotton Tee</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt2.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Heavy Cotton Tee</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt3.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Heavy Blend Crewneck Sweatshirt</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="single-shirt">
-                        <div class="shirt-image">
-                            <img src="{{ asset('images/shirt4.png') }}" alt="Shirt Image" class="img-fluid">
-                        </div>
-                        <div class="shirt-details">
-                            <h4>Unisex Ultra Cotton Tee</h4>
-                            <small>Gildan 2000</small>
-                            <h6>USD 8.26</h6>
-                            <ul>
-                                <li>8 sizes</li>
-                                <li>64 colors</li>
-                                <li>11 print providers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection

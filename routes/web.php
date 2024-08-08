@@ -64,9 +64,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
 
     Route::get('/products', 'HomeController@products');
 
-    Route::get('/catalog', function () {
-        return view('frontend.pages.catalog');
-    })->name('catalog');
+    Route::get('/catalog', 'CatalogController@products')->name('catalog');
 
     Route::get('/contact', function () {
         return view('frontend.pages.contact');
@@ -77,9 +75,10 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
     Route::get('/product_page', function () {
         return view('frontend.pages.product_page');
     })->name('products');
-    Route::get('/single_product', function () {
-        return view('frontend.pages.single_product');
-    })->name('single_product');
+    Route::get('/product/{id}', 'CatalogController@show');
+    // Route::get('/single_product', function () {
+    //     return view('frontend.pages.single_product');
+    // })->name('single_product');
     Route::get('/sub_category', function () {
         return view('frontend.pages.sub_category');
     })->name('sub_category');
