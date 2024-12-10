@@ -12,6 +12,7 @@
                     <a class="nav-link" href="{{route('frontend.how_it_works')}}">How it Works</a>
                     <a class="nav-link" href="{{route('frontend.faq')}}">FAQs</a>
                     <a class="nav-link" href="{{route('frontend.blog')}}">Blog</a>
+                    <a class="nav-link" href="{{route('frontend.privacy')}}">Privacy Policy</a>
                     <a class="nav-link" href="#">Help</a>
                 </div>
                 <div class="login-btn">

@@ -110,6 +110,7 @@ return [
     'faqQuestion' => [
         'title'          => 'Questions',
         'title_singular' => 'Question',
+        'privacy' => 'Privacy Policy',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',

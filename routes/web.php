@@ -67,6 +67,9 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
     Route::get('/catalog', function () {
         return view('frontend.pages.catalog');
     })->name('catalog');
+    Route::get('/privacy-policy', function () {
+        return view('frontend.pages.privacy_policy');
+    })->name('privacy');
 
     Route::get('/contact', function () {
         return view('frontend.pages.contact');
