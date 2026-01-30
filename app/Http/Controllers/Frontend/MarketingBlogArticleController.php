@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
@@ -24,7 +24,7 @@ class MarketingBlogArticleController extends Controller
 
         $marketingBlogArticles = MarketingBlogArticle::with(['marketing_blog_category', 'media'])->get();
 
-        return view('admin.marketingBlogArticles.index', compact('marketingBlogArticles'));
+        return view('frontend.marketingBlogArticles.index', compact('marketingBlogArticles'));
     }
 
     public function create()
@@ -33,7 +33,7 @@ class MarketingBlogArticleController extends Controller
 
         $marketing_blog_categories = MarketingBlogCategory::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.marketingBlogArticles.create', compact('marketing_blog_categories'));
+        return view('frontend.marketingBlogArticles.create', compact('marketing_blog_categories'));
     }
 
     public function store(StoreMarketingBlogArticleRequest $request)
@@ -48,7 +48,7 @@ class MarketingBlogArticleController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $marketingBlogArticle->id]);
         }
 
-        return redirect()->route('admin.marketing-blog-articles.index');
+        return redirect()->route('frontend.marketing-blog-articles.index');
     }
 
     public function edit(MarketingBlogArticle $marketingBlogArticle)
@@ -59,7 +59,7 @@ class MarketingBlogArticleController extends Controller
 
         $marketingBlogArticle->load('marketing_blog_category');
 
-        return view('admin.marketingBlogArticles.edit', compact('marketingBlogArticle', 'marketing_blog_categories'));
+        return view('frontend.marketingBlogArticles.edit', compact('marketingBlogArticle', 'marketing_blog_categories'));
     }
 
     public function update(UpdateMarketingBlogArticleRequest $request, MarketingBlogArticle $marketingBlogArticle)
@@ -80,7 +80,7 @@ class MarketingBlogArticleController extends Controller
             }
         }
 
-        return redirect()->route('admin.marketing-blog-articles.index');
+        return redirect()->route('frontend.marketing-blog-articles.index');
     }
 
     public function show(MarketingBlogArticle $marketingBlogArticle)
@@ -89,7 +89,7 @@ class MarketingBlogArticleController extends Controller
 
         $marketingBlogArticle->load('marketing_blog_category');
 
-        return view('admin.marketingBlogArticles.show', compact('marketingBlogArticle'));
+        return view('frontend.marketingBlogArticles.show', compact('marketingBlogArticle'));
     }
 
     public function destroy(MarketingBlogArticle $marketingBlogArticle)

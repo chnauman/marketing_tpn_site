@@ -42,6 +42,22 @@
     </div>
 </div>
 
-
+<div class="card">
+    <div class="card-header">
+        {{ trans('global.relatedData') }}
+    </div>
+    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="#marketing_blog_category_marketing_blog_articles" role="tab" data-toggle="tab">
+                {{ trans('cruds.marketingBlogArticle.title') }}
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" role="tabpanel" id="marketing_blog_category_marketing_blog_articles">
+            @includeIf('admin.marketingBlogCategories.relationships.marketingBlogCategoryMarketingBlogArticles', ['marketingBlogArticles' => $marketingBlogCategory->marketingBlogCategoryMarketingBlogArticles])
+        </div>
+    </div>
+</div>
 
 @endsection
